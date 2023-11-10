@@ -1,6 +1,11 @@
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import { useContext, useEffect, useRef } from 'react'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { useContext } from 'react'
 import { GlobalContext } from '@/store/GlobalContext'
 import { cn } from '@/lib/utils'
 import { SignUpForm } from '@/components/SignUpForm'
@@ -10,7 +15,7 @@ import { SignInForm } from '@/components/SignInForm'
 
 export function LoginSignupTabs() {
   return (
-    <Tabs defaultValue="sign-in" className="mt-8 md: mt-4">
+    <Tabs defaultValue="sign-in" className="mt-12 md:mt-4">
       <TabsList className="grid w-full grid-cols-2 mb-6">
         <TabsTrigger value="sign-in">Sign In</TabsTrigger>
         <TabsTrigger value="sign-up">Sign Up</TabsTrigger>
@@ -41,7 +46,9 @@ export function LoginSignupDialog() {
         </Button>
       </DialogTrigger>
       <DialogContent
-        className={cn('h-screen w-full md:h-fit md:max-w-[425px]')}
+        className={cn(
+          'h-screen w-full md:h-fit md:max-w-[425px] mt-4 border-none md:mt-0 border-1',
+        )}
       >
         <LoginSignupTabs />
       </DialogContent>
