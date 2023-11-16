@@ -8,6 +8,7 @@ import type {
 } from 'next'
 
 export const options: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: 'Credentials',
