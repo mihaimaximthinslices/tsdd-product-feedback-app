@@ -10,8 +10,10 @@ import { LogIn, MoreHorizontal } from 'lucide-react'
 import { PopoverClose } from '@radix-ui/react-popover'
 import { useContext } from 'react'
 import { GlobalContext } from '@/store/GlobalContext'
+import { useTranslations } from 'next-intl'
 
 export function DesktopMenu() {
+  const t = useTranslations('common')
   const { setGlobalContext } = useContext(GlobalContext)
   return (
     <div className="hidden md:block">
@@ -21,7 +23,7 @@ export function DesktopMenu() {
             <MoreHorizontal />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-48 mt-2 mr-2">
+        <PopoverContent className="w-56 mt-2 mr-2">
           <PopoverClose>
             <div
               onClick={() => {
@@ -35,7 +37,7 @@ export function DesktopMenu() {
               }
             >
               <LogIn className="mr-2 h-4 w-4" />
-              <span>Log In / Sign Up</span>
+              <span>{t('openLoginSignupModalButton')}</span>
             </div>
           </PopoverClose>
         </PopoverContent>

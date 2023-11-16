@@ -9,9 +9,10 @@ import {
   SheetClose,
 } from '@/components/ui/sheet'
 import { GlobalContext } from '@/store/GlobalContext'
-
+import { useTranslations } from 'next-intl'
 export function MobileMenu() {
   const { setGlobalContext } = useContext(GlobalContext)
+  const t = useTranslations('common')
   return (
     <div className="md:hidden">
       <Sheet>
@@ -35,7 +36,7 @@ export function MobileMenu() {
                 }
               >
                 <LogIn className="mr-2 h-4 w-4" />
-                <span>Log In / Sign Up</span>
+                <span>{t('openLoginSignupModalButton')}</span>
               </div>
             </SheetClose>
           </div>

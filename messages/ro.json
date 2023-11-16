@@ -1,0 +1,30 @@
+{
+  "common": {
+    "welcome": "Bine ai venit pe website-ul meu",
+    "about": "Despre noi",
+    "openLoginSignupModalButton": "Logare / Inregistrare"
+  },
+  "auth": {
+    "openLoginSignupModalButton": "Logare / Inregistrare",
+    "loginSection": "Logare",
+    "signupSection": "Inregistrare",
+    "loginAction": "Logheaza-te",
+    "signupAction": "Inregistreaza-te",
+    "username": {
+      "title": "Nume utilizator",
+      "info": "Acesta este numele tau de utilizator",
+      "errorInvalidLength": "Numele de utilizator trebuie sa contina cel putin 2 caractere"
+    },
+    "email": {
+      "title": "Email",
+      "info": "Acesta este email-ul tau",
+      "errorInvalidFormat": "Te rog introdu un email valid"
+    },
+    "password": {
+      "title": "Parola",
+      "info": "Aceasta este parola ta, trebuie sa contina minim 8 caractere",
+      "errorInvalidLength": "Parola trebuie sa contina cel putin 8 caractere"
+
+    }
+  }
+}

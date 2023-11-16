@@ -1,0 +1,29 @@
+{
+  "common": {
+    "welcome": "Welcome to my website",
+    "about": "About us",
+    "openLoginSignupModalButton": "Log In / Sign Up"
+  },
+  "auth": {
+    "openLoginSignupModalButton": "Log In / Sign Up",
+    "loginSection": "Log In",
+    "signupSection": "Sign Up",
+    "loginAction": "Log In",
+    "signupAction": "Sign Up",
+    "username": {
+      "title": "Username",
+      "info": "This is your username",
+      "errorInvalidLength": "Username must be at least 2 characters"
+    },
+    "email": {
+      "title": "Email",
+      "info": "This is your email",
+      "errorInvalidFormat": "Please enter a valid email"
+    },
+    "password": {
+      "title": "Password",
+      "info": "This is your password, it must be at least 8 characters long",
+      "errorInvalidLength": "Password must be at least 8 characters"
+    }
+  }
+}

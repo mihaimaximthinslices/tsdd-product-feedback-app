@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { useMessages, useTranslations } from 'next-intl'
 
 type GlobalContextType = {
   showSignupLoginDialog: boolean

@@ -16,14 +16,15 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
-  }),
-})
+import { useTranslations } from 'next-intl'
 
 export function SignInForm() {
+  const t = useTranslations('auth')
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: t('username.errorInvalidLength'),
+    }),
+  })
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,19 +44,17 @@ export function SignInForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>{t('username.title')}</FormLabel>
               <FormControl>
                 <Input placeholder="shadcn" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>{t('username.info')}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" className={cn('w-full')}>
-          Sign in
+          {t('loginAction')}
         </Button>
       </form>
     </Form>
