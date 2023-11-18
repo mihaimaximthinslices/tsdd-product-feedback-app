@@ -24,7 +24,7 @@ export default function LanguageChanger() {
       <Select.Content position={'popper'}>
         <Select.Group className={'min-w-[100px]'}>
           <Select.Item value="en">English</Select.Item>
-          <Select.Item value="ro">Romanian</Select.Item>
+          <Select.Item value="ro">Română</Select.Item>
         </Select.Group>
       </Select.Content>
     </Select.Root>
