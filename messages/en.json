@@ -12,18 +12,21 @@
     "signupAction": "Sign Up",
     "username": {
       "title": "Username",
-      "info": "This is your username",
-      "errorInvalidLength": "Username must be at least 2 characters"
+      "info": "This will be your username",
+      "placeholder": "john.doe",
+      "errorInvalidLength": "Username must be at least 8 characters long"
     },
     "email": {
       "title": "Email",
       "info": "This is your email",
+      "placeholder": "john.doe@gmail.com",
       "errorInvalidFormat": "Please enter a valid email"
     },
     "password": {
       "title": "Password",
-      "info": "This is your password, it must be at least 8 characters long",
-      "errorInvalidLength": "Password must be at least 8 characters"
+      "info": "This will be your password",
+      "errorInvalidLength": "Password must be at least 8 characters",
+      "placeholder": "At least 8 characters"
     }
   }
 }

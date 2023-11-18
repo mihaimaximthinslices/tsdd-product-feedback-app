@@ -8,6 +8,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
     extend: {
       backgroundImage: {
@@ -16,8 +17,13 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        ...violet,
-        ...mauve,
+        ...blackA,
+        'color-background': 'var(--color-background)',
+        'color-overlay': 'var(--color-overlay)',
+        'color-panel-solid': 'var(--color-panel-solid)',
+        'color-panel-translucent': 'var(--color-panel-translucent)',
+        'color-surface': 'var(--color-surface)',
+        'color-transparent': 'var(--color-transparent)',
       },
     },
   },

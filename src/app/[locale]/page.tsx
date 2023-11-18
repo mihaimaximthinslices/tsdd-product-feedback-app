@@ -5,7 +5,6 @@ import { Link } from '@/navigation'
 export default function Home() {
   const t = useTranslations('common')
 
-  console.log(t)
   return (
     <section>
       <h1>{t('welcome')}</h1>

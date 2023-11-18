@@ -7,6 +7,7 @@ import { GlobalContextProvider } from '@/store/GlobalContext'
 import { SessionProvider } from 'next-auth/react'
 import { NextIntlClientProvider } from 'next-intl'
 import { AbstractIntlMessages } from 'use-intl'
+import { Theme, ThemePanel } from '@radix-ui/themes'
 
 function ThemeProvider({ children }: { children: ReactNode }) {
   return (
@@ -59,7 +60,9 @@ export default function Provider({
       <NextSessionProvider>
         <QueryClientProvider client={queryClient}>
           <GlobalContextProvider>
-            <ThemeProvider>{children}</ThemeProvider>
+            <ThemeProvider>
+              <Theme accentColor="grass">{children}</Theme>
+            </ThemeProvider>
           </GlobalContextProvider>
         </QueryClientProvider>
       </NextSessionProvider>

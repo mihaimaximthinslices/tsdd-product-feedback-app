@@ -1,21 +1,11 @@
 'use client'
-
+import { Select } from '@radix-ui/themes'
 import { useLocale } from 'next-intl'
 import { useRouter } from '@/navigation'
 import { usePathname } from '@/navigation'
 import { ChangeEvent } from 'react'
 
 import * as React from 'react'
-
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 
 export default function LanguageChanger() {
   const router = useRouter()
@@ -29,16 +19,14 @@ export default function LanguageChanger() {
   }
 
   return (
-    <Select value={locale} onValueChange={handleChange}>
-      <SelectTrigger className="w-[120px]">
-        <SelectValue placeholder="English" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="en">English</SelectItem>
-          <SelectItem value="ro">Romana</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <Select.Root defaultValue={locale} onValueChange={handleChange}>
+      <Select.Trigger className={'min-w-[130px]'}></Select.Trigger>
+      <Select.Content position={'popper'}>
+        <Select.Group className={'min-w-[100px]'}>
+          <Select.Item value="en">English</Select.Item>
+          <Select.Item value="ro">Romanian</Select.Item>
+        </Select.Group>
+      </Select.Content>
+    </Select.Root>
   )
 }

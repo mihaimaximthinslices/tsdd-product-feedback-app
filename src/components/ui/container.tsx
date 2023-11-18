@@ -1,8 +1,5 @@
-import { useTranslations } from 'next-intl'
+import { Box } from '@radix-ui/themes'
 
 export function Container({ children }: { children: React.ReactNode }) {
-  const t = useTranslations('common')
-
-  console.log(t('welcome'), 'container')
-  return <div className="mx-auto w-full max-w-7xl">{children}</div>
+  return <Box className="mx-auto w-full h-screen px-4">{children}</Box>
 }

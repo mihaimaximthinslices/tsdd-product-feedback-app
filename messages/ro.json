@@ -1,30 +1,32 @@
 {
   "common": {
-    "welcome": "Bine ai venit pe website-ul meu",
+    "welcome": "Bine ai venit pe site-ul meu",
     "about": "Despre noi",
-    "openLoginSignupModalButton": "Logare / Inregistrare"
+    "openLoginSignupModalButton": "Logare / Înregistrare"
   },
   "auth": {
-    "openLoginSignupModalButton": "Logare / Inregistrare",
+    "openLoginSignupModalButton": "Logare / Înregistrare",
     "loginSection": "Logare",
-    "signupSection": "Inregistrare",
-    "loginAction": "Logheaza-te",
-    "signupAction": "Inregistreaza-te",
+    "signupSection": "Înregistrare",
+    "loginAction": "Loghează-te",
+    "signupAction": "Înregistrează-te",
     "username": {
       "title": "Nume utilizator",
-      "info": "Acesta este numele tau de utilizator",
-      "errorInvalidLength": "Numele de utilizator trebuie sa contina cel putin 2 caractere"
+      "info": "Acesta este numele tău de utilizator",
+      "placeholder": "john.doe",
+      "errorInvalidLength": "Numele trebuie să conțină cel puțin 8 caractere"
     },
     "email": {
       "title": "Email",
-      "info": "Acesta este email-ul tau",
-      "errorInvalidFormat": "Te rog introdu un email valid"
+      "info": "Acesta este email-ul tău",
+      "placeholder": "john.doe@gmail.com",
+      "errorInvalidFormat": "Email-ul este invalid"
     },
     "password": {
-      "title": "Parola",
-      "info": "Aceasta este parola ta, trebuie sa contina minim 8 caractere",
-      "errorInvalidLength": "Parola trebuie sa contina cel putin 8 caractere"
-
+      "title": "Parolă",
+      "info": "Aceasta este parola ta",
+      "errorInvalidLength": "Parola trebuie să conțină cel puțin 8 caractere",
+      "placeholder": "Cel puțin 8 caractere"
     }
   }
 }

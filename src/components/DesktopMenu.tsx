@@ -1,13 +1,5 @@
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
+import { Popover, Button, IconButton } from '@radix-ui/themes'
 import { LogIn, MoreHorizontal } from 'lucide-react'
-import { PopoverClose } from '@radix-ui/react-popover'
 import { useContext } from 'react'
 import { GlobalContext } from '@/store/GlobalContext'
 import { useTranslations } from 'next-intl'
@@ -17,14 +9,14 @@ export function DesktopMenu() {
   const { setGlobalContext } = useContext(GlobalContext)
   return (
     <div className="hidden md:block">
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button size={'icon'} variant={'ghost'}>
+      <Popover.Root>
+        <Popover.Trigger>
+          <IconButton variant="ghost">
             <MoreHorizontal />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-56 mt-2 mr-2">
-          <PopoverClose>
+          </IconButton>
+        </Popover.Trigger>
+        <Popover.Content color={'green'} className="w-56 mt-2 mr-2">
+          <Popover.Close>
             <div
               onClick={() => {
                 setGlobalContext((prev) => ({
@@ -39,9 +31,9 @@ export function DesktopMenu() {
               <LogIn className="mr-2 h-4 w-4" />
               <span>{t('openLoginSignupModalButton')}</span>
             </div>
-          </PopoverClose>
-        </PopoverContent>
-      </Popover>
+          </Popover.Close>
+        </Popover.Content>
+      </Popover.Root>
     </div>
   )
 }
