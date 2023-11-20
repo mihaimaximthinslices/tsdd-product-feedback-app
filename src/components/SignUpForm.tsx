@@ -1,143 +1,120 @@
+'use client'
 import * as React from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+
 import * as Form from '@radix-ui/react-form'
 
-import { Badge, Button, Callout, Flex, Text, TextField } from '@radix-ui/themes'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
-import { InfoCircledIcon } from '@radix-ui/react-icons'
 
 export function SignUpForm() {
   const t = useTranslations('auth')
-
   const formSchema = z.object({
-    email: z.string().email({ message: t('email.errorInvalidFormat') }),
+    email: z
+      .string()
+      .min(1, t('email.cantBeEmpty'))
+      .email({ message: t('email.errorInvalidFormat') }),
     password: z.string().min(8, t('password.errorInvalidLength')),
-    username: z.string().min(8, {
-      message: t('username.errorInvalidLength'),
-    }),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
       password: '',
       email: '',
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {}
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
+  }
 
   return (
     <Form.Root
       className="flex flex-col gap-6"
       onSubmit={form.handleSubmit(onSubmit)}
     >
+      <div className={'flex flex-col gap-2'}>
+        <h1 className="text-heading1">{t('signupFormTitle')}</h1>
+        <span className="text-heading4 text-colors-t-color-1 max-w-[280px] balance">
+          {t('signupFormSubtitle')}
+        </span>
+      </div>
+
       <Form.Field name="email">
-        <Flex direction={'column'} className={cn(`gap-2`)}>
+        <fieldset className="flex flex-col gap-2">
           <Form.Label>
-            <Badge size={'2'}>{t('email.title')}</Badge>
+            <span
+              className={cn(
+                'text-body1 text-colors-t-color-2',
+                form.formState.errors.email && 'text-colors-t-color-red',
+              )}
+            >
+              {t('email.title')}
+            </span>
           </Form.Label>
           <Form.Control asChild>
-            <TextField.Input
-              variant={'soft'}
+            <input
               {...form.register('email')}
-              size={'3'}
               type="email"
-              autoComplete="on"
               placeholder={t('email.placeholder')}
+              autoComplete="on"
               className={cn(
+                'px-2 rounded-md py-1 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1',
                 form.formState.errors.email &&
-                  'border-destructive !outline-transparent focus:ring-destructive',
+                  'border-2 border-colors-t-color-red !outline-transparent focus:shadow-none',
               )}
             />
           </Form.Control>
-
           {form.formState.errors.email && (
-            <Callout.Root variant="surface" size={'1'}>
-              <Callout.Icon>
-                <InfoCircledIcon />
-              </Callout.Icon>
-              <Callout.Text>{form.formState.errors.email.message}</Callout.Text>
-            </Callout.Root>
+            <span className="text-colors-t-color-red text-body3">
+              {form.formState.errors.email.message}
+            </span>
           )}
-        </Flex>
-      </Form.Field>
-      <Form.Field name="username">
-        <Flex direction={'column'} className={cn(`gap-2`)}>
-          <Form.Label>
-            <Badge size={'2'}>{t('username.title')}</Badge>
-          </Form.Label>
-          <Form.Control asChild>
-            <TextField.Input
-              variant={'soft'}
-              {...form.register('username')}
-              size={'3'}
-              type="text"
-              placeholder={t('username.placeholder')}
-              autoComplete={'on'}
-              className={cn(
-                form.formState.errors.username &&
-                  'border-destructive !outline-transparent focus:ring-destructive',
-              )}
-            />
-          </Form.Control>
-
-          {form.formState.errors.username && (
-            <Callout.Root variant="surface" size={'1'}>
-              <Callout.Icon>
-                <InfoCircledIcon />
-              </Callout.Icon>
-              <Callout.Text>
-                {form.formState.errors.username.message}
-              </Callout.Text>
-            </Callout.Root>
-          )}
-        </Flex>
+        </fieldset>
       </Form.Field>
       <Form.Field name="password">
-        <Flex direction={'column'} className={cn(`gap-2`)}>
+        <fieldset className="flex flex-col gap-2">
           <Form.Label>
-            <Badge size={'2'}>{t('password.title')}</Badge>
+            <span
+              className={cn(
+                'text-body1 text-colors-t-color-2',
+                form.formState.errors.password && 'text-colors-t-color-red',
+              )}
+            >
+              {t('password.title')}
+            </span>
           </Form.Label>
           <Form.Control asChild>
-            <TextField.Input
-              variant={'soft'}
+            <input
               {...form.register('password')}
-              size={'3'}
               type="password"
               placeholder={t('password.placeholder')}
-              autoComplete={'on'}
+              autoComplete="on"
               className={cn(
+                'px-2 rounded-md py-1 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1',
                 form.formState.errors.password &&
-                  'border-destructive !outline-transparent focus:ring-destructive',
+                  'border-2 border-colors-t-color-red !outline-transparent focus:shadow-none',
               )}
             />
           </Form.Control>
 
           {form.formState.errors.password && (
-            <Callout.Root variant="surface" size={'1'}>
-              <Callout.Icon>
-                <InfoCircledIcon />
-              </Callout.Icon>
-              <Callout.Text>
-                {form.formState.errors.password.message}
-              </Callout.Text>
-            </Callout.Root>
+            <span className="text-colors-t-color-red text-body3">
+              {form.formState.errors.password.message}
+            </span>
           )}
-        </Flex>
+        </fieldset>
       </Form.Field>
-      <Button
+      <button
         type="submit"
-        size={'3'}
-        className={cn('w-full mt-4 cursor-pointer disabled:cursor-default')}
+        className="bg-colors-ic-color-3 p-2 rounded-md hover:bg-colors-ic-color-2 text-colors-t-color-2 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1"
       >
         {t('signupAction')}
-      </Button>
+      </button>
     </Form.Root>
   )
 }

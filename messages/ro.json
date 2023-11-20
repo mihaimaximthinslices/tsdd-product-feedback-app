@@ -6,9 +6,13 @@
   },
   "auth": {
     "openLoginSignupModalButton": "Logare / Înregistrare",
-    "loginSection": "Logare",
+    "signinSection": "Autentificare",
     "signupSection": "Înregistrare",
-    "loginAction": "Loghează-te",
+    "signinAction": "Loghează-te",
+    "signinFormTitle": "Bine ai Revenit \uD83D\uDC4B",
+    "signinFormSubtitle": "Introdu detaliile tale de autentificare pentru a-ti accesa contul",
+    "signupFormTitle": "Crează-ți un cont",
+    "signupFormSubtitle": "Ai nevoie de un cont pentru a putea lasa review-uri",
     "signupAction": "Înregistrează-te",
     "username": {
       "title": "Nume utilizator",
@@ -20,7 +24,8 @@
       "title": "Email",
       "info": "Acesta este email-ul tău",
       "placeholder": "john.doe@gmail.com",
-      "errorInvalidFormat": "Email-ul este invalid"
+      "errorInvalidFormat": "Email-ul este invalid",
+      "cantBeEmpty": "Email-ul nu poate fi gol"
     },
     "password": {
       "title": "Parolă",

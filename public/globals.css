@@ -1,8 +1,86 @@
-@layer tw_base, radix_ui, custom_radix_ui, tw_components_utils;
-@import "@radix-ui/themes/styles.css" layer(radix_ui);
-@import "./custom_radix_ui.css" layer(custom_radix_ui);
+@layer tw_base, light_colors, dark_colors, tw_components_utils;
+@import "./ligh-colors.css" layer(light_colors);
+@import "./dark-colors.css" layer(dark_colors);
+
 @layer tw_base {
     @tailwind base;
+
+    :root, :root[data-theme="light"], .custom-light {
+        --bg-color-1: var(--light-slate-1);
+        --bg-color-2: var(--light-slate-2);
+        --ic-color-1: var(--light-slate-3);
+        --ic-color-2: var(--light-slate-4);
+        --ic-color-3: var(--light-slate-5);
+        --bs-color-1: var(--light-slate-6);
+        --bs-color-2: var(--light-slate-7);
+        --bs-color-3: var(--light-slate-8);
+        --s-color-1: var(--light-slate-9);
+        --s-color-2: var(--light-slate-10);
+        --t-color-1: var(--light-slate-11);
+        --t-color-2: var(--light-slate-12);
+        --t-color-red: var(--light-red-10);
+    }
+
+    :root[data-theme="dark"], .custom-dark {
+        --bg-color-1: var(--dark-slate-1);
+        --bg-color-2: var(--dark-slate-2);
+        --ic-color-1: var(--dark-slate-3);
+        --ic-color-2: var(--dark-slate-4);
+        --ic-color-3: var(--dark-slate-5);
+        --bs-color-1: var(--dark-slate-6);
+        --bs-color-2: var(--dark-slate-7);
+        --bs-color-3: var(--dark-slate-8);
+        --s-color-1: var(--dark-slate-9);
+        --s-color-2: var(--dark-slate-10);
+        --t-color-1: var(--dark-slate-11);
+        --t-color-2: var(--dark-slate-12);
+        --t-color-red: var(--light-red-9);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --bg-color-1: var(--dark-slate-1);
+        --bg-color-2: var(--dark-slate-2);
+        --ic-color-1: var(--dark-slate-3);
+        --ic-color-2: var(--dark-slate-4);
+        --ic-color-3: var(--dark-slate-5);
+        --bs-color-1: var(--dark-slate-6);
+        --bs-color-2: var(--dark-slate-7);
+        --bs-color-3: var(--dark-slate-8);
+        --s-color-1: var(--dark-slate-9);
+        --s-color-2: var(--dark-slate-10);
+        --t-color-1: var(--dark-slate-11);
+        --t-color-2: var(--dark-slate-12);
+    }
+
+    :root[data-theme="green"], .custom-green {
+        --bg-color-1: var(--dark-green-1);
+        --bg-color-2: var(--dark-green-2);
+        --ic-color-1: var(--dark-green-3);
+        --ic-color-2: var(--dark-green-4);
+        --ic-color-3: var(--dark-green-5);
+        --bs-color-1: var(--dark-green-6);
+        --bs-color-2: var(--dark-green-7);
+        --bs-color-3: var(--dark-green-8);
+        --s-color-1: var(--dark-green-9);
+        --s-color-2: var(--dark-green-10);
+        --t-color-1: var(--dark-green-11);
+        --t-color-2: var(--dark-green-12);
+    }
+    .focusable {
+        outline: none;
+    }
+
+    .focusable:focus {
+        ring-width: 2px;
+        ring-color: var(--t-color-2);
+        box-shadow: 0 0 0 2px var(--t-color-2);
+    }
+
+    .focusable:focus-within {
+        shadow: 0 0 0 2px var(--t-color-2);
+        position: relative;
+        z-index: 10;
+    }
 }
 
 @layer tw_components_utils {

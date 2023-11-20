@@ -6,9 +6,13 @@
   },
   "auth": {
     "openLoginSignupModalButton": "Log In / Sign Up",
-    "loginSection": "Log In",
+    "signinSection": "Sign In",
     "signupSection": "Sign Up",
-    "loginAction": "Log In",
+    "signinAction": "Log In",
+    "signupFormTitle": "Create Account",
+    "signupFormSubtitle": "Let's get you all set up so you can start leaving reviews!",
+    "signinFormTitle": "Welcome Back \uD83D\uDC4B",
+    "signinFormSubtitle": "Add your details below to access your reviews!",
     "signupAction": "Sign Up",
     "username": {
       "title": "Username",
@@ -20,7 +24,8 @@
       "title": "Email",
       "info": "This is your email",
       "placeholder": "john.doe@gmail.com",
-      "errorInvalidFormat": "Please enter a valid email"
+      "errorInvalidFormat": "Please enter a valid email",
+      "cantBeEmpty": "Email can't be empty"
     },
     "password": {
       "title": "Password",

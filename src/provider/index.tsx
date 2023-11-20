@@ -2,20 +2,11 @@
 import React, { ReactNode, useState, useEffect } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import { ThemeProvider as NextThemeProvider } from 'next-themes'
 import { GlobalContextProvider } from '@/store/GlobalContext'
 import { SessionProvider } from 'next-auth/react'
 import { NextIntlClientProvider } from 'next-intl'
 import { AbstractIntlMessages } from 'use-intl'
-import { Theme, ThemePanel } from '@radix-ui/themes'
-
-function ThemeProvider({ children }: { children: ReactNode }) {
-  return (
-    <NextThemeProvider attribute={'class'} defaultTheme={'system'} enableSystem>
-      {children}
-    </NextThemeProvider>
-  )
-}
+import { ThemeProvider } from 'next-themes'
 
 function NextSessionProvider({ children }: { children: ReactNode }) {
   return <SessionProvider>{children}</SessionProvider>
@@ -35,6 +26,10 @@ function NextIntlProvider({
       {children}
     </NextIntlClientProvider>
   )
+}
+
+function NextThemeProvider({ children }: { children: React.ReactNode }) {
+  return <ThemeProvider>{children}</ThemeProvider>
 }
 export default function Provider({
   children,
@@ -56,16 +51,14 @@ export default function Provider({
     return <></>
   }
   return (
-    <NextIntlProvider locale={locale} messages={messages}>
-      <NextSessionProvider>
-        <QueryClientProvider client={queryClient}>
-          <GlobalContextProvider>
-            <ThemeProvider>
-              <Theme accentColor="grass">{children}</Theme>
-            </ThemeProvider>
-          </GlobalContextProvider>
-        </QueryClientProvider>
-      </NextSessionProvider>
-    </NextIntlProvider>
+    <NextThemeProvider>
+      <NextIntlProvider locale={locale} messages={messages}>
+        <NextSessionProvider>
+          <QueryClientProvider client={queryClient}>
+            <GlobalContextProvider>{children}</GlobalContextProvider>
+          </QueryClientProvider>
+        </NextSessionProvider>
+      </NextIntlProvider>
+    </NextThemeProvider>
   )
 }

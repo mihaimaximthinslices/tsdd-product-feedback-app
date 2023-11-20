@@ -12,6 +12,14 @@ export const pathnames = {
   // single external path can be provided.
   '/': '/',
   '/blog': '/blog',
+  '/sign-in': {
+    en: '/sign-in',
+    ro: '/autentificare',
+  },
+  '/sign-up': {
+    en: '/sign-up',
+    ro: '/inregistrare',
+  },
 
   // If locales use different paths, you can
   // specify each external path per locale.

@@ -1,29 +1,19 @@
-'use client'
+import { LanguageSelector } from '@/components/LanguageSelector'
+import ThemeSelector from '@/components/ThemeSelector'
+import NavBarMenu from '@/components/NavBarMenu'
 
-import { ThemeSwitchButton } from '@/components/ThemeSwitchButton'
-import { UserAvatar } from '@/components/UserAvatar'
-import { MobileMenu } from '@/components/MobileMenu'
-import { LoginSignupDialog } from '@/components/LoginSignupDialog'
-import { DesktopMenu } from '@/components/DesktopMenu'
-import LanguageChanger from '@/components/LanguageChanger'
-import { Flex } from '@radix-ui/themes'
-
-export function NavBar() {
+export default function NavBar() {
   return (
-    <nav className="flex justify-between w-full pt-4 pb-4 px-2">
-      <Flex direction={'row'} gap={'3'} align={'center'}>
-        <LanguageChanger />
-        <ThemeSwitchButton />
-      </Flex>
-      <div className="flex gap-6 items-center">
-        <div className="flex gap-2">
-          {/*<UserAvatar />*/}
-          <MobileMenu />
-          <DesktopMenu />
+    <nav className="w-full flex p-4 items-center bg-colors-bg-color-2 border border-colors-bs-color-2 justify-between">
+      <section>
+        <div className="flex items-center gap-2 text-colors-t-color-1">
+          <LanguageSelector />
+          <ThemeSelector />
         </div>
-      </div>
-
-      <LoginSignupDialog />
+      </section>
+      <section>
+        <NavBarMenu />
+      </section>
     </nav>
   )
 }
