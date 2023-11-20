@@ -73,3 +73,4 @@ const SelectItem: ForwardRefExoticComponent<
     </Select.Item>
   )
 })
+SelectItem.displayName = 'SelectItem'
