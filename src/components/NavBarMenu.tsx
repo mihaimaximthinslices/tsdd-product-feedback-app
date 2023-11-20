@@ -18,7 +18,7 @@ export default function NavBarMenu() {
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
-          className="mt-3 rounded-b-md w-[130px] md:w-[200px] bg-colors-bg-color-2 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1"
+          className="mt-3 rounded-b-md w-[130px] md:w-[200px] bg-colors-bg-color-2 focus:outline-none focus:shadow-none"
           sideOffset={5}
         >
           <ul className="w-full flex flex-col rounded-b-md divide-y divide-colors-bs-color-3 border-b border-l border-r border-colors-bs-color-3 ">

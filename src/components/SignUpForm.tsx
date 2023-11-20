@@ -18,6 +18,9 @@ export function SignUpForm() {
       .min(1, t('email.cantBeEmpty'))
       .email({ message: t('email.errorInvalidFormat') }),
     password: z.string().min(8, t('password.errorInvalidLength')),
+    username: z.string().min(8, {
+      message: t('username.errorInvalidLength'),
+    }),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -76,6 +79,39 @@ export function SignUpForm() {
           )}
         </fieldset>
       </Form.Field>
+      <Form.Field name="username">
+        <fieldset className="flex flex-col gap-2">
+          <Form.Label>
+            <span
+              className={cn(
+                'text-body1 text-colors-t-color-2',
+                form.formState.errors.username && 'text-colors-t-color-red',
+              )}
+            >
+              {t('username.title')}
+            </span>
+          </Form.Label>
+          <Form.Control asChild>
+            <input
+              {...form.register('username')}
+              type="text"
+              placeholder={t('username.placeholder')}
+              autoComplete={'on'}
+              className={cn(
+                'px-2 rounded-md py-1 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1',
+                form.formState.errors.username &&
+                  'border-2 border-colors-t-color-red !outline-transparent focus:shadow-none',
+              )}
+            />
+          </Form.Control>
+
+          {form.formState.errors.username && (
+            <span className="text-colors-t-color-red text-body3">
+              {form.formState.errors.username.message}
+            </span>
+          )}
+        </fieldset>
+      </Form.Field>
       <Form.Field name="password">
         <fieldset className="flex flex-col gap-2">
           <Form.Label>
@@ -111,7 +147,7 @@ export function SignUpForm() {
       </Form.Field>
       <button
         type="submit"
-        className="bg-colors-ic-color-3 p-2 rounded-md hover:bg-colors-ic-color-2 text-colors-t-color-2 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1"
+        className="bg-colors-ic-color-3 p-2 rounded-md hover:bg-colors-ic-color-2 text-colors-t-color-2 focus:outline-none focus:shadow-[0_0_0_2px] focus:shadow-colors-s-color-1 hover:text-colors-t-color-1"
       >
         {t('signupAction')}
       </button>
